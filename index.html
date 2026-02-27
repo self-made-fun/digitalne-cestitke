@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="bs">
+<head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TWWMNRDSC6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-FG6NBT3RY4');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Digitalne čestitke online | Pošalji personalizovanu čestitku</title>
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@200;400;700&display=swap');
+        :root { --primary: #ff4b6e; --gold: #d4af37; --bg: #050508; --glass: rgba(255, 255, 255, 0.03); }
+        body, html { margin: 0; padding: 0; width: 100%; height: 100%; background: var(--bg); color: white; font-family: 'Montserrat', sans-serif; }
+        .bg-gradient { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(45deg, #050508, #1a0505, #0a0a1a, #050508); background-size: 400% 400%; animation: gradientBG 15s ease infinite; z-index: -1; }
+        @keyframes gradientBG { 0% {background-position: 0% 50%;} 50% {background-position: 100% 50%;} 100% {background-position: 0% 50%;} }
+        #builder-site { padding: 20px; display: flex; flex-direction: column; align-items: center; gap: 40px; }
+        .form-part { width: 100%; max-width: 500px; background: var(--glass); backdrop-filter: blur(25px); padding: 30px; border-radius: 30px; border: 1px solid rgba(255,255,255,0.1); box-sizing: border-box; }
+        h1 { font-family: 'Great Vibes'; font-size: 50px; color: var(--primary); text-align: center; margin: 0; }
+        .tagline { text-align: center; color: #888; font-size: 10px; letter-spacing: 2px; margin-bottom: 25px; }
+        label { display: block; font-size: 9px; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; font-weight: 700; }
+        input, textarea, select { width: 100%; background: rgba(0,0,0,0.6); border: 1px solid #333; color: #fff; padding: 15px; border-radius: 12px; margin-bottom: 20px; box-sizing: border-box; font-family: inherit; font-size: 14px; }
+        .btn-gen { background: linear-gradient(45deg, var(--primary), #ff2d95); color: white; border: none; padding: 18px; border-radius: 40px; font-weight: bold; width: 100%; cursor: pointer; text-transform: uppercase; letter-spacing: 1px; }
+        .phone-wrapper { padding: 10px; background: linear-gradient(135deg, #d4af37, #8a6d3b); border-radius: 50px; box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
+        .phone { width: 280px; height: 530px; border: 8px solid #111; border-radius: 40px; overflow: hidden; background: #000; position: relative; }
+        #live-view { height: 100%; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 25px; box-sizing: border-box; }
+        .main-symbol { font-size: 80px; animation: float 2s infinite ease-in-out; filter: drop-shadow(0 0 15px var(--primary)); }
+        @keyframes float { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        #romance-site { display: none; width: 100%; height: 100%; position: fixed; top: 0; left: 0; z-index: 9999; justify-content: center; align-items: center; }
+        #final-card { display: none; width: 85%; max-width: 400px; padding: 40px 25px; background: rgba(10, 10, 15, 0.8); backdrop-filter: blur(30px); border-radius: 40px; border: 1px solid rgba(212,175,55,0.2); text-align: center; }
+        .create-own-btn { position: fixed; bottom: 20px; right: 20px; background: rgba(255,255,255,0.1); backdrop-filter: blur(10px); border: 1px solid rgba(255,255,255,0.2); color: white; padding: 10px 18px; border-radius: 50px; text-decoration: none; font-size: 11px; z-index: 10000; }
+        .petal { position: absolute; pointer-events: none; animation: fall linear forwards; }
+        @keyframes fall { 0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; } 15% { opacity: 1; } 100% { transform: translateY(110vh) rotate(360deg); opacity: 0; } }
+    </style>
+</head>
+<body>
+
+    <div class="bg-gradient"></div>
+
+    <main id="builder-site">
+        <div class="form-part">
+            <h1>Eternal Heart</h1>
+            <p class="tagline">IZRADI SVOJU DIGITALNU ČAROLIJU</p>
+            
+            <label>1. Odaberi temu</label>
+            <select id="set-theme" onchange="loadMessages()">
+                <option value="🌹|🌹|#250000">Godišnjica (Ruže)</option>
+                <option value="🎂|✨|#000025">Rođendan (Zvijezde)</option>
+                <option value="💍|💎|#151500">Vjenčanje (Dijamanti)</option>
+                <option value="💖|🌸|#1a001a">Ljubavna poruka (Cvijet)</option>
+            </select>
+            
+            <label>2. Brze poruke (50 opcija)</label>
+            <select id="quick-msg" onchange="applyQuickMsg()"></select>
+            
+            <label>3. Naslov</label>
+            <input type="text" id="set-title" placeholder="Npr. Za tebe..." oninput="updatePreview()">
+            
+            <label>4. Tvoja poruka</label>
+            <textarea id="set-msg" rows="4" placeholder="Napiši nešto..." oninput="updatePreview()"></textarea>
+            
+            <button class="btn-gen" onclick="generateAndCopy()">KREIRAJ I POŠALJI 🚀</button>
+            <div id="link-box" style="display:none; margin-top:15px; text-align:center; color:var(--gold); font-size:12px; font-weight:bold;">✅ Link je kopiran! Pošalji ga dragoj osobi.</div>
+        </div>
+
+        <div class="phone-wrapper">
+            <div class="phone">
+                <div id="live-view">
+                    <div id="view-icon" class="main-symbol">🌹</div>
+                    <div id="view-title" style="font-family:'Great Vibes'; font-size:32px; color:var(--primary); margin-top:15px;"></div>
+                    <div id="view-msg" style="font-size:14px; color:#ccc; margin-top:10px; font-weight:200; line-height:1.5;"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="romance-site">
+        <div id="start-btn" class="main-symbol" style="font-size:100px; cursor:pointer;">🌹</div>
+        <div id="final-card">
+            <h2 id="final-title" style="font-family:'Great Vibes'; font-size:45px; color:var(--primary); margin:0 0 15px 0;"></h2>
+            <p id="final-msg" style="font-size:18px; font-weight:200; line-height:1.6; color:#fff;"></p>
+        </div>
+        <a href="#" class="create-own-btn" onclick="goToHome(event)">✨ Napravi i ti svoju čestitku</a>
+    </div>
+
+    <script>
+        const poruke = {
+            "🌹|🌹|#250000": Array.from({length: 50}, (_, i) => ["Sretna godišnjica!", "Volim te više nego jučer.", "Hvala za svaki tren.", "Ti si moj mir.", "Moje srce je tvoje.", "Zauvijek tvoj.", "Najljepša moja.", "Ti si moj život.", "Bez tebe ne mogu.", "Sretan sam s tobom.", "Ti si moja bajka.", "Obećavam ti vječnost.", "Moja si podrška.", "Volim tvoj osmijeh.", "Najbolja si stvar ikad.", "Ti si moj dar.", "Sretna nam ljubav.", "Zajedno smo jači.", "Ti si moj dom.", "Ti si moja radost.", "Hvala ti za sve.", "Ti si moje zlato.", "Srećo moja.", "Ti si moj ponos.", "Hvala što postojiš.", "Samo ti.", "Sretan sam što te imam.", "Ti si moja snaga.", "Volim te do neba.", "Ti si moja inspiracija.", "Najljepša si kad se smiješ.", "Ti si moje sve.", "Srce moje.", "S tobom cvjetam.", "Uvijek uz tebe.", "Moja jedina.", "Zauvijek sretni.", "Hvala na ljubavi.", "Ti si moj san.", "Ti si razlog osmijeha.", "Vjerujem u nas.", "Najdraža moja.", "Moja ljubav si ti.", "Ti si moje sunce.", "Ti si mi sve.", "S tobom je sve lakše.", "Volim tvoj glas.", "Zajedno do kraja.", "Ljubav moja.", "Zauvijek."][i % 50]),
+            "🎂|✨|#000025": Array.from({length: 50}, (_, i) => ["Sretan rođendan!", "Danas slavimo tebe!", "Neka ti život bude bajka.", "Sve najbolje, ljubavi!", "Danas si najljepša.", "Neka ti se snovi ostvare.", "Hvala što si se rodila.", "Volim te najviše.", "Uživaj u svom danu.", "Neka te prati sreća.", "Ti si moj poklon.", "Budi uvijek nasmijana.", "Živjela sto godina!", "Sretan rođendan, srećo!", "Moje si sve.", "Zaslužuješ najbolje.", "Neka te čuva radost.", "Puno zdravlja i ljubavi.", "Ti si moj ponos.", "Najdraža moja.", "Danas je tvoj sjaj.", "Puno poljubaca!", "Ostani svoja.", "Sretan rođendan, mila.", "Neka srce pjeva.", "Ti si moja svjetlost.", "Hvala za svaki osmijeh.", "Danas je poseban dan.", "Sretan rođendan, dušo.", "Najljepša nevjesta dana.", "Sreća ti se smiješila.", "Uvijek budi sretna.", "Ti si moja inspiracija.", "Neka ti bude predivno.", "Volim te do zvijezda.", "Sretan rođendan, ljepoto.", "Danas plešemo!", "Ti si moje blago.", "Sunce moje.", "Sve ti cvjetalo.", "Najbolja si!", "Sretan rođendan, zlato.", "Zauvijek nasmijana.", "Hvala na svemu.", "Ti si dar.", "Neka te prati ljubav.", "Srce moje.", "Sretan ti dan!", "Volim te beskrajno.", "Sretan rođendan!"][i % 50]),
+            "💍|💎|#151500": Array.from({length: 50}, (_, i) => ["Sretno vjenčanje!", "Danas počinje vječnost.", "Obećavam ti ljubav.", "Moje srce je tvoje.", "Zajedno u novi dom.", "Hvala što si rekla DA.", "Naša bajka počinje.", "Najljepša moja nevjesto.", "Ti si moj dijamant.", "Zauvijek tvoj.", "Danas postajemo jedno.", "Naša ljubav je pobijedila.", "Sretan sam čovjek.", "Ti si moje utočište.", "Hvala ti za ljubav.", "Gradimo naš svijet.", "Ovaj prsten je vječnost.", "Ti si moja snaga.", "Volim te beskrajno.", "Zajedno do kraja.", "Naša priča je unikatna.", "Moja inspiracija.", "Sudbina nas spojila.", "Zauvijek uz tebe.", "Sretno nam!", "Ti si moj ponos.", "Vjerujem u nas.", "Najljepši dan ikad.", "Ti si moje sve.", "Ljubav bez kraja.", "Srce za srce.", "Moj mir.", "Tvoj osmijeh je zakon.", "Zajedno u pobjede.", "Naša sreća.", "Vječno tvoj.", "Obećavam ti radost.", "Ti si moj san.", "Zlato moje.", "Hvala na povjerenju.", "Ponosni suprug.", "Zaslužuješ ljubav.", "Ti si moj dar.", "Najdraža osoba.", "Uvijek i zauvijek.", "Naša mala tajna.", "Ljubav cvjeta.", "Sretno koračamo.", "Ti si moja jedina.", "Vječna ljubav."][i % 50]),
+            "💖|🌸|#1a001a": Array.from({length: 50}, (_, i) => ["Volim te!", "Samo mislim na tebe.", "Ti si moja radost.", "Nedostaješ mi.", "Najljepša si.", "Hvala što postojiš.", "Ti si moje sunce.", "S tobom je sve lakše.", "Ljubav si moja.", "Moje srce kuca za tebe.", "Srodna dušo.", "Volim tvoj osmijeh.", "Uvijek uz tebe.", "Ti si moj mir.", "Zauvijek tvoj/a.", "Ti si mi sve.", "Jedva čekam da te vidim.", "Ti si moja inspiracija.", "Najljepši cvijet.", "Ti si moj san.", "Vjerujem u tebe.", "Hvala ti za sve.", "Ti si moje zlato.", "Moje srce.", "Ti si moje blago.", "S tobom cvjetam.", "Moja jedina.", "Volim te do neba.", "Ti si moje utočište.", "Najdraža moja.", "Ti si moj ponos.", "Hvala ti za osmijeh.", "Volim tvoj miris.", "Ti si mi snaga.", "Moja bajka.", "Srce moje.", "Samo ti i ja.", "Uvijek u mislima.", "Ljubav je malo reći.", "Zaslužuješ svijet.", "Ti si moj dar.", "Vječno zaljubljen.", "Ti si moje nebo.", "Volim te beskrajno.", "Najljepša duša.", "Ti si moje sve.", "Bez tebe ne mogu.", "Tvoj zagrljaj.", "Ti si moja sreća.", "Zauvijek."][i % 50])
+        };
+
+        function loadMessages() {
+            const theme = document.getElementById('set-theme').value;
+            const select = document.getElementById('quick-msg');
+            select.innerHTML = '<option value="">-- Izaberi jednu od 50 poruka --</option>';
+            (poruke[theme] || []).forEach(m => {
+                let opt = document.createElement('option'); opt.value = m;
+                opt.innerHTML = m.substring(0, 40) + "..."; select.appendChild(opt);
+            });
+            updatePreview();
+        }
+
+        function applyQuickMsg() {
+            const val = document.getElementById('quick-msg').value;
+            if(val) { document.getElementById('set-msg').value = val; updatePreview(); }
+        }
+
+        function updatePreview() {
+            const d = document.getElementById('set-theme').value.split('|');
+            document.getElementById('view-icon').innerText = d[0];
+            document.getElementById('view-title').innerText = document.getElementById('set-title').value;
+            document.getElementById('view-msg').innerText = document.getElementById('set-msg').value;
+            document.getElementById('live-view').style.background = `radial-gradient(circle at center, ${d[2]} 0%, #000 100%)`;
+        }
+
+        function generateAndCopy() {
+            // SLANJE PODATAKA GOOGLE-U (EVENT)
+            gtag('event', 'generate_card', {
+                'event_category': 'Engagement',
+                'event_label': document.getElementById('set-theme').value.split('|')[0]
+            });
+
+            const theme = document.getElementById('set-theme').value;
+            const title = encodeURIComponent(document.getElementById('set-title').value || "Za tebe");
+            const msg = encodeURIComponent(document.getElementById('set-msg').value || "Volim te");
+            const finalUrl = `${window.location.origin}${window.location.pathname}?data=${encodeURIComponent(theme)}&t=${title}&m=${msg}`;
+            
+            const el = document.createElement('textarea'); el.value = finalUrl;
+            document.body.appendChild(el); el.select(); document.execCommand('copy');
+            document.body.removeChild(el);
+            document.getElementById('link-box').style.display = 'block';
+            setTimeout(() => { document.getElementById('link-box').style.display = 'none'; }, 4000);
+        }
+
+        function goToHome(e) { e.preventDefault(); window.location.href = window.location.origin + window.location.pathname; }
+
+        window.onload = () => {
+            const p = new URLSearchParams(window.location.search);
+            if(p.has('data')) {
+                document.getElementById('builder-site').style.display = 'none';
+                document.getElementById('romance-site').style.display = 'flex';
+                const d = decodeURIComponent(p.get('data')).split('|');
+                document.getElementById('romance-site').style.background = `radial-gradient(circle at center, ${d[2]} 0%, #000 100%)`;
+                document.getElementById('start-btn').innerText = d[0];
+                document.getElementById('final-title').innerText = decodeURIComponent(p.get('t'));
+                document.getElementById('final-msg').innerText = decodeURIComponent(p.get('m'));
+
+                document.getElementById('start-btn').onclick = function() {
+                    this.style.display = 'none';
+                    document.getElementById('final-card').style.display = 'block';
+                    setInterval(() => {
+                        const s = document.createElement('div');
+                        s.className = 'petal'; s.innerHTML = d[1];
+                        s.style.left = Math.random() * 100 + 'vw';
+                        s.style.fontSize = Math.random() * 20 + 25 + 'px';
+                        s.style.animationDuration = Math.random() * 3 + 6 + 's';
+                        document.body.appendChild(s); setTimeout(() => s.remove(), 8000);
+                    }, 400);
+                };
+            } else { loadMessages(); updatePreview(); }
+        };
+    </script>
+</body>
+</html>
